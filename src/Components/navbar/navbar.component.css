@@ -1,0 +1,99 @@
+/* Navbar Component - Dark Theme */
+.navbar {
+    overflow: hidden;
+    background-color: #0d0321;
+    /* Darker shade of primary */
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    z-index: 1000;
+}
+
+/* Left-aligned buttons container */
+.nav-left {
+    display: flex;
+}
+
+/* Right-aligned buttons container */
+.nav-right {
+    display: flex;
+}
+
+.navbar button {
+    display: block;
+    color: orchid;
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Right-aligned link */
+.navbar button.right {
+    margin-left: auto;
+    float: right;
+}
+
+/* Hover effect with smooth transition */
+.navbar button:hover {
+    background-color: rgba(218, 112, 214, 0.2);
+    /* Semi-transparent orchid */
+    color: #fff;
+}
+
+/* Active/current link */
+.navbar button.active {
+    background-color: orchid;
+    color: rgb(16, 5, 36);
+    font-weight: bold;
+}
+
+/* Active button hover animation */
+.navbar button.active:hover {
+    background-color: #da70d6;
+    /* Brighter orchid on hover */
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Button hover animation */
+.navbar button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: orchid;
+    transition: width 0.3s ease;
+}
+
+.navbar button:hover::after {
+    width: 100%;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav-left,
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .navbar button {
+        padding: 12px 16px;
+    }
+}

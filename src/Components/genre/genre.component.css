@@ -1,0 +1,314 @@
+/* Genre Component - Dark Theme */
+:host {
+    display: block;
+    background-color: #12072a;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+.genre-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.genre-header {
+    margin-bottom: 30px;
+}
+
+.genre-header h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.genre-header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    background-color: orchid;
+    border-radius: 2px;
+}
+
+.genre-selector {
+    max-width: 400px;
+}
+
+/* Material Form Field Customization */
+::ng-deep .mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: rgba(26, 8, 54, 0.8);
+    border-radius: 8px 8px 0 0;
+    padding: 0.75em 0.75em 0;
+}
+
+::ng-deep .mat-form-field-label {
+    color: orchid !important;
+}
+
+::ng-deep .mat-select-value {
+    color: #fff !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    background-color: orchid !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+    background-color: orchid !important;
+}
+
+::ng-deep .mat-select-arrow {
+    color: orchid !important;
+}
+
+::ng-deep .mat-select-panel {
+    background-color: rgb(16, 5, 36) !important;
+    border: 1px solid rgba(218, 112, 214, 0.3);
+}
+
+::ng-deep .mat-option {
+    color: #e0b0e0 !important;
+}
+
+::ng-deep .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: orchid !important;
+    background-color: rgba(218, 112, 214, 0.15) !important;
+}
+
+::ng-deep .mat-option:hover:not(.mat-option-disabled) {
+    background-color: rgba(218, 112, 214, 0.1) !important;
+}
+
+.genre-results {
+    margin-top: 20px;
+}
+
+.current-genre {
+    margin-bottom: 25px;
+}
+
+.current-genre h2 {
+    color: orchid;
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.genre-divider {
+    height: 1px;
+    background: linear-gradient(90deg, orchid, rgba(218, 112, 214, 0.1));
+}
+
+.novels-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.novel-card {
+    display: flex;
+    background-color: rgba(26, 8, 54, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.novel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.novel-image {
+    position: relative;
+    flex: 0 0 150px;
+}
+
+.cover-image {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    display: block;
+}
+
+.rating-chip {
+    position: absolute;
+    top: 10px;
+    right: -15px;
+    background-color: orchid;
+    color: rgb(16, 5, 36);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.star-icon {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.novel-details {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.novel-title {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 0 5px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.novel-title:hover {
+    color: orchid;
+}
+
+.novel-author {
+    color: #f0c080;
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.genre-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.genre-tag {
+    background-color: rgba(218, 112, 214, 0.2);
+    color: orchid;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.novel-description {
+    color: #e0b0e0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.novel-stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+.stat-icon {
+    margin-right: 5px;
+}
+
+.read-novel-btn {
+    background-color: orchid;
+    color: rgb(16, 5, 36);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.read-novel-btn:hover {
+    background-color: #f0b0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(26, 8, 54, 0.6);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #b0b0b0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .novel-card {
+        flex-direction: column;
+    }
+
+    .novel-image {
+        flex: auto;
+    }
+
+    .cover-image {
+        width: 100%;
+        height: 250px;
+    }
+
+    .rating-chip {
+        top: 15px;
+        right: 15px;
+    }
+
+    .read-novel-btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .genre-container {
+        padding: 15px;
+    }
+
+    .novel-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

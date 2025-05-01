@@ -1,0 +1,177 @@
+<div class="admin-dashboard">
+    <div class="dashboard-header">
+        <div class="header-title">
+            <h1>Admin Dashboard</h1>
+            <p class="subtitle">Manage your NoveLuxe content</p>
+        </div>
+        <div class="header-actions">
+            <button class="logout-btn" (click)="logout()">
+                <span class="logout-icon">⇥</span>
+                Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-card">
+            <div class="stats-icon" style="background-color: rgba(218, 112, 214, 0.2);">
+                <span>📚</span>
+            </div>
+            <div class="stats-content">
+                <h3>Total Novels</h3>
+                <p class="stats-value">124</p>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-icon" style="background-color: rgba(144, 238, 144, 0.2);">
+                <span>📝</span>
+            </div>
+            <div class="stats-content">
+                <h3>Total Chapters</h3>
+                <p class="stats-value">1,563</p>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-icon" style="background-color: rgba(135, 206, 235, 0.2);">
+                <span>👥</span>
+            </div>
+            <div class="stats-content">
+                <h3>Active Users</h3>
+                <p class="stats-value">8,732</p>
+            </div>
+        </div>
+
+        <div class="stats-card">
+            <div class="stats-icon" style="background-color: rgba(255, 165, 0, 0.2);">
+                <span>⭐</span>
+            </div>
+            <div class="stats-content">
+                <h3>Avg. Rating</h3>
+                <p class="stats-value">4.7</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Management Tabs -->
+    <div class="dashboard-content">
+        <div class="tabs">
+            <button class="tab-btn active">Novels</button>
+            <button class="tab-btn">Chapters</button>
+            <button class="tab-btn">Reports</button>
+        </div>
+
+        <div class="tab-content">
+            <div class="section-header">
+                <h2>Manage Novels</h2>
+                <button class="add-btn">Add New Novel</button>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <h3>Upload New Novel</h3>
+                    </div>
+                    <div class="upload-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" placeholder="Enter novel title">
+                            </div>
+                            <div class="form-group">
+                                <label>Author</label>
+                                <input type="text" placeholder="Enter author name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea rows="4" placeholder="Enter novel description"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Genre</label>
+                                <select>
+                                    <option value="">Select Genre</option>
+                                    <option value="Action">Action</option>
+                                    <option value="Adventure">Adventure</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Sci-Fi">Sci-Fi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Publish Date</label>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cover Image</label>
+                            <div class="file-upload">
+                                <input type="file" id="cover-upload" hidden>
+                                <label for="cover-upload" class="upload-label">
+                                    <span class="upload-icon">+</span>
+                                    <span>Choose File</span>
+                                </label>
+                                <span class="file-name">No file chosen</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="cancel-btn">Cancel</button>
+                            <button class="submit-btn">Upload Novel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novels List Table -->
+            <div class="table-container">
+                <table class="novels-table">
+                    <thead>
+                        <tr>
+                            <th>Cover</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th>Rating</th>
+                            <th>Published</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let novel of novels">
+                            <td>
+                                <img [src]="'assets/' + novel.folderName + '.jpg'" alt="{{ novel.title }}" class="table-cover">
+                            </td>
+                            <td>{{ novel.title }}</td>
+                            <td>{{ novel.author }}</td>
+                            <td>{{ novel.genre }}</td>
+                            <td>{{ novel.rating }}</td>
+                            <td>{{ novel.publishDate | date:'dd MMM yyyy' }}</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn edit">Edit</button>
+                                    <button class="action-btn delete">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn">&laquo;</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">&raquo;</button>
+            </div>
+        </div>
+    </div>
+</div>

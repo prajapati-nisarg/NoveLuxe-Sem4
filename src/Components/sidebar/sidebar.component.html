@@ -1,0 +1,14 @@
+<div class="side">
+  <h2>About Website</h2>
+  <h3>NoveLuxe</h3>
+  <div class="images1">
+    <img src="logo.PNG" alt="NoveLuxe.logo" class="about_logo">
+    <p class="about_details">NoveLuxe invites readers into a digital sanctuary where literary enthusiasts can indulge in a vast collection of novels for free. Immerse yourself in captivating stories across genres, accessible at your fingertips. Explore a world of words on NoveLuxe and let the stories unfold.</p>
+  </div>
+  <h3>Most Popular</h3>
+  <p>Top 5 most popular novels on the NoveLuxe</p>
+    <div class="ranking" *ngFor="let nov of sortByRating(novels)">
+      <img [src]="'assets/' + nov.folderName + '.jpg'" alt="{{ nov.title }}" class="novimg1">
+      <a (click)="nameFetch(nov.title)" routerLink="novel-disp" class="top5">{{nov.title}}</a>
+    </div><br>
+</div>

@@ -1,0 +1,132 @@
+/* Sidebar Component - Dark Theme */
+.side {
+  flex: 30%;
+  background-color: #1a0836;
+  padding: 24px 16px;
+  color: #e0e0e0;
+  box-shadow: inset -4px 0 10px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.side h2 {
+  color: #fff;
+  border-bottom: 2px solid orchid;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.side h3 {
+  color: orchid;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.ranking {
+  background-color: rgba(16, 5, 36, 0.7);
+  width: 93%;
+  padding: 8px 12px;
+  margin: 12px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px orchid;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ranking:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgba(30, 10, 60, 0.8);
+}
+
+.images1 {
+  background-color: rgba(16, 5, 36, 0.8);
+  padding: 15px;
+  width: 93%;
+  overflow: hidden;
+  border-radius: 12px;
+  height: auto;
+  min-height: 225px;
+  box-shadow: 0 3px 10px orchid;
+  margin-bottom: 20px;
+}
+
+.about_logo {
+  width: 180px;
+  height: 180px;
+  margin: 10px 15px 10px 0;
+  float: left;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.about_details {
+  color: #e0b0e0;
+  /* Lighter variant of orchid */
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+a.top5 {
+  display: inline-block;
+  padding-left: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: orchid;
+  line-height: 57px;
+  transition: color 0.2s ease;
+  flex-grow: 1;
+}
+
+a.top5:hover {
+  color: #f0b0f0;
+  /* Lighter orchid on hover */
+  text-decoration: underline;
+}
+
+img.novimg1 {
+  width: 40px;
+  height: 55px;
+  margin-top: 3px;
+  margin-right: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hide scrollbars but maintain functionality */
+.ranking,
+.images1 {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ranking::-webkit-scrollbar,
+.images1::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .side {
+    padding: 16px;
+  }
+
+  .about_logo {
+    width: 140px;
+    height: 140px;
+    display: block;
+    float: none;
+    margin: 0 auto 15px;
+  }
+
+  .about_details {
+    text-align: center;
+  }
+}

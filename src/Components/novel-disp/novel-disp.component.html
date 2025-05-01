@@ -1,0 +1,76 @@
+<div class="novel-container" *ngIf="novel">
+    <div class="novel-header">
+        <h2 class="novel-title">{{novel.title}}</h2>
+        <div class="novel-meta">
+            <span class="novel-author">By {{novel.author}}</span>
+            <span class="novel-rating">⭐ {{novel.rating}}/10</span>
+            <span class="novel-status"
+                [ngClass]="{'status-completed': novel.Status === 'Completed', 'status-ongoing': novel.Status === 'Ongoing'}">
+                {{novel.Status}}
+            </span>
+        </div>
+        <div class="novel-tags">
+            <span class="novel-genre">{{novel.genre}}</span>
+            <span class="novel-chapters">{{novel.chapterCount}} Chapters</span>
+            <span class="novel-date">Published: {{novel.publishDate}}</span>
+            <span class="novel-updated">Updated: {{novel.lastUpdated}}</span>
+        </div>
+    </div>
+
+    <div class="novel-description">
+        <h3>Description</h3>
+        <p>{{novel.desp}}</p>
+    </div>
+
+    <div class="chapter-navigation">
+        <div class="chapter-selector">
+            <label for="chapter-select">Chapter:</label>
+            <select id="chapter-select" [(ngModel)]="selectedChapter" class="chapter-select">
+                <option *ngFor="let chapter of chapterArray" [value]="chapter">
+                    Chapter {{chapter}}
+                </option>
+            </select>
+            <button (click)="changeChapter()" class="btn">Go</button>
+        </div>
+
+        <div class="chapter-controls">
+            <button [disabled]="selectedChapter <= 1" (click)="previousChapter()" class="btn btn-nav">
+                ← Previous
+            </button>
+            <span class="chapter-indicator">Chapter {{selectedChapter}} of {{novel.chapterCount}}</span>
+            <button [disabled]="selectedChapter >= novel.chapterCount" (click)="nextChapter()" class="btn btn-nav">
+                Next →
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-indicator">
+        <p>Loading chapter content...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+        <p>{{errorMessage}}</p>
+    </div>
+
+    <div *ngIf="chapterContent && !isLoading" class="chapter-content">
+        <h2 class="chapter-title">{{chapterTitle}}</h2>
+        <div class="chapter-text">
+            <p *ngFor="let paragraph of chapterContent">{{paragraph}}</p>
+        </div>
+
+        <div class="chapter-controls bottom-controls">
+            <button [disabled]="selectedChapter <= 1" (click)="previousChapter()" class="btn btn-nav">
+                ← Previous
+            </button>
+            <button [disabled]="selectedChapter >= novel.chapterCount" (click)="nextChapter()" class="btn btn-nav">
+                Next →
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!novel" class="loading-container">
+    <p *ngIf="isLoading">Loading novel information...</p>
+    <p *ngIf="!isLoading && errorMessage">{{errorMessage}}</p>
+    <p *ngIf="!isLoading && !errorMessage">No novel selected</p>
+</div>

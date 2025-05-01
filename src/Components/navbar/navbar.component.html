@@ -1,0 +1,6 @@
+<div class="navbar">
+    <button class="active" routerLink="home">Home</button>
+    <button routerLink="genre">Genre</button>
+    <button id="login" class="right active" routerLink="admin-login" *ngIf="!isLoggedIn()">Admin Login</button>
+    <button id="dashboard" class="right active"  routerLink="admin-dashboard" *ngIf="isLoggedIn()">Admin Dashboard</button>
+</div>

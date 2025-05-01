@@ -1,0 +1,233 @@
+/* Home Component - Dark Theme */
+:host {
+    display: block;
+    background-color: #12072a;
+    /* Dark background */
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-header {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section-header h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    background-color: orchid;
+    border-radius: 2px;
+}
+
+.header-line {
+    height: 1px;
+    background: linear-gradient(90deg, orchid, rgba(218, 112, 214, 0.1));
+    margin-top: 10px;
+}
+
+.novels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 30px;
+}
+
+.novel-card {
+    background-color: rgba(26, 8, 54, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.novel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    padding: 18px 20px 12px;
+    border-bottom: 1px solid rgba(218, 112, 214, 0.2);
+}
+
+.card-header h2 {
+    color: #fff;
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-header h5 {
+    color: #a0a0a0;
+    font-size: 12px;
+    margin: 6px 0 0;
+    font-style: italic;
+    text-align: right;
+}
+
+.novel-content {
+    display: flex;
+    padding: 20px;
+}
+
+.novel-image {
+    position: relative;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.cover-image {
+    width: 140px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+.novel-card:hover .cover-image {
+    transform: scale(1.05);
+}
+
+.novel-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.novel-title {
+    color: orchid;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.novel-title:hover {
+    color: #f0b0f0;
+    text-decoration: underline;
+}
+
+.novel-author {
+    color: #f0c080;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.novel-description {
+    color: #e0b0e0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.novel-metadata {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.metadata-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.metadata-label {
+    color: #a0a0a0;
+    margin-bottom: 3px;
+}
+
+.metadata-value {
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.read-button {
+    background-color: orchid;
+    color: rgb(16, 5, 36);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.read-button:hover {
+    background-color: #f0b0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.no-novels {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #a0a0a0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .novels-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .novel-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .novel-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .read-button {
+        align-self: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-header {
+        text-align: center;
+    }
+
+    .card-header h5 {
+        text-align: center;
+    }
+
+    .novel-metadata {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,50 @@
+<div class="home-container">
+    <div class="section-header">
+        <h1>Latest Releases</h1>
+        <div class="header-line"></div>
+    </div>
+
+    <div class="novels-grid">
+        <div *ngFor="let nov of sortByDate(novels).slice(0,4)" class="novel-card">
+            <div class="card-header">
+                <h2>{{ nov.title }}</h2>
+                <h5>Updated on {{ nov.lastUpdated | date : 'dd MMM, yyyy' }}</h5>
+            </div>
+
+            <div class="novel-content">
+                <div class="novel-image">
+                    <img [src]="'assets/' + nov.folderName + '.jpg'" alt="{{ nov.title }}" class="cover-image">
+                </div>
+
+                <div class="novel-info">
+                    <a class="novel-title" (click)="goToDisp(nov.title)">{{ nov.title }}</a>
+                    <p class="novel-author">by {{ nov.author }}</p>
+                    <p class="novel-description">{{ nov.description }}</p>
+
+                    <div class="novel-metadata">
+                        <div class="metadata-item">
+                            <span class="metadata-label">Genre:</span>
+                            <span class="metadata-value">{{ nov.genre }}</span>
+                        </div>
+
+                        <div class="metadata-item">
+                            <span class="metadata-label">Published:</span>
+                            <span class="metadata-value">{{ nov.publishDate }}</span>
+                        </div>
+
+                        <div class="metadata-item">
+                            <span class="metadata-label">Rating:</span>
+                            <span class="metadata-value">{{ nov.rating }}</span>
+                        </div>
+                    </div>
+
+                    <button class="read-button" (click)="goToDisp(nov.title)">Read Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="novels.length === 0" class="no-novels">
+        <p>Loading novels...</p>
+    </div>
+</div>
